@@ -33,6 +33,10 @@ namespace CollectionViewDemo.MVVM.ViewModels
             IsRefreshing = false;
         });
 
+        public ICommand DeleteCommand => new Command((p) => {
+            Products.Remove((Product)p);
+        });
+
         private void RefreshItems(int lastIndex = 0)
         {
             int numberOfItemsPerPage = 10;
