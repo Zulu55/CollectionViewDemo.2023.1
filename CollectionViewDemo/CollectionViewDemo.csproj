@@ -117,8 +117,6 @@
 	  <None Remove="Selectors\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="MVVM\" />
-	  <Folder Include="MVVM\Views\" />
 	  <Folder Include="MVVM\ViewModels\" />
 	  <Folder Include="MVVM\Models\" />
 	  <Folder Include="Selectors\" />
@@ -179,6 +177,9 @@
 	  <BundleResource Include="Resources\Images\yogurt.png" />
 	</ItemGroup>
 	<ItemGroup>
+	  <MauiXaml Update="MVVM\Views\LayoutsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\CollectionViewDictionary.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
