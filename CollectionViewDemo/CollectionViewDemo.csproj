@@ -113,12 +113,14 @@
 	  <None Remove="Resources\Images\water_bottle.png" />
 	  <None Remove="Resources\Images\watermelon.png" />
 	  <None Remove="Resources\Images\yogurt.png" />
+	  <None Remove="Selectors\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="MVVM\" />
 	  <Folder Include="MVVM\Views\" />
 	  <Folder Include="MVVM\ViewModels\" />
 	  <Folder Include="MVVM\Models\" />
+	  <Folder Include="Selectors\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Images\alcohol.png" />
