@@ -18,7 +18,15 @@ namespace CollectionViewDemo.MVVM.ViewModels
 
         public bool IsRefreshing { get; set; }
 
-        public ICommand RefreshCommand => new Command(async () => {
+        public Product SelectedProduct { get; set; }
+
+        public ICommand ProductChangedCommand => new Command(() =>
+        {
+            var selectedProduct = SelectedProduct;
+        });
+
+        public ICommand RefreshCommand => new Command(async () => 
+        {
             IsRefreshing = true;
             await Task.Delay(3000);
             RefreshItems();
