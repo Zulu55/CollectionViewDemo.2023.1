@@ -14,7 +14,7 @@ namespace CollectionViewDemo.MVVM.ViewModels
             RefreshItems();
 		}
 
-		public ObservableCollection<Product> Products { get; set; }
+        public ObservableCollection<Product> Products { get; set; } = new();
 
         public bool IsRefreshing { get; set; }
 
@@ -25,9 +25,18 @@ namespace CollectionViewDemo.MVVM.ViewModels
             IsRefreshing = false;
         });
 
-        private void RefreshItems()
+        public ICommand ThresholdReachedCommand => new Command(async() =>
         {
-            Products = new()
+            IsRefreshing = true;
+            await Task.Delay(1000);
+            RefreshItems(Products.Count);
+            IsRefreshing = false;
+        });
+
+        private void RefreshItems(int lastIndex = 0)
+        {
+            int numberOfItemsPerPage = 10;
+            var items = new ObservableCollection<Product>()
             {
                 new Product
                 {
@@ -440,6 +449,11 @@ namespace CollectionViewDemo.MVVM.ViewModels
                     Stock = 9
                 },
             };
+            var pageItems = items.Skip(lastIndex).Take(numberOfItemsPerPage);
+            foreach (var item in pageItems)
+            {
+                Products.Add(item);
+            }
         }
     }
 }
