@@ -174,5 +174,11 @@
 	  <BundleResource Include="Resources\Images\water_bottle.png" />
 	  <BundleResource Include="Resources\Images\watermelon.png" />
 	  <BundleResource Include="Resources\Images\yogurt.png" />
+	  <BundleResource Include="Resources\Styles\CollectionViewDictionary.xaml">
+	    <SubType>Designer</SubType>
+	  </BundleResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Remove="Resources\Styles\CollectionViewDictionary.xaml" />
 	</ItemGroup>
 </Project>
