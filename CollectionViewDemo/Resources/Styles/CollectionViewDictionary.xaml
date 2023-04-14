@@ -37,4 +37,53 @@
                 VerticalOptions="Center"/>
         </Grid>
     </DataTemplate>
+    <DataTemplate x:Key="OfferStyle">
+        <Grid
+            Margin="15,10,15,0"
+            HeightRequest="200"
+            ColumnDefinitions=".3*,.7*"
+            RowDefinitions="*,*">
+            <Frame
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                BorderColor="White">
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Offset="0" Color="Yellow"/>
+                        <GradientStop Offset="1" Color="#eeb54c"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+            </Frame>
+            <Image
+                Grid.RowSpan="2"
+                HeightRequest="100"
+                Source="{Binding Image}"/>
+            <Label
+                Grid.Column="2"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                Text="{Binding Name, StringFormat='OFFER: {0}'}"
+                VerticalOptions="Center"/>
+            <Label
+                Grid.Column="2"
+                Grid.Row="1"
+                FontSize="Title"
+                FontAttributes="Bold"
+                TextColor="White"
+                Text="{Binding Price, StringFormat='{0:C}'}"
+                VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            Text="{Binding Price, StringFormat='{0:C}'}"
+                            TextDecorations="Strikethrough"
+                            TextColor="DarkRed"/>
+                        <Span
+                            Text="{Binding OfferPrice, StringFormat=' => {0:C}'}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+    </DataTemplate>
 </ResourceDictionary>
