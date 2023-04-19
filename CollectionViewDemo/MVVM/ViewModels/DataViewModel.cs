@@ -1,18 +1,17 @@
-﻿using System;
+﻿using CollectionViewDemo.MVVM.Models;
+using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using CollectionViewDemo.MVVM.Models;
-using PropertyChanged;
 
 namespace CollectionViewDemo.MVVM.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
-	public class DataViewModel
-	{
-		public DataViewModel()
-		{
+    public class DataViewModel
+    {
+        public DataViewModel()
+        {
             RefreshItems();
-		}
+        }
 
         public ObservableCollection<Product> Products { get; set; } = new();
 
@@ -25,7 +24,7 @@ namespace CollectionViewDemo.MVVM.ViewModels
             var selectedProduct = SelectedProduct;
         });
 
-        public ICommand RefreshCommand => new Command(async () => 
+        public ICommand RefreshCommand => new Command(async () =>
         {
             IsRefreshing = true;
             await Task.Delay(3000);
@@ -33,7 +32,7 @@ namespace CollectionViewDemo.MVVM.ViewModels
             IsRefreshing = false;
         });
 
-        public ICommand ThresholdReachedCommand => new Command(async() =>
+        public ICommand ThresholdReachedCommand => new Command(async () =>
         {
             IsRefreshing = true;
             await Task.Delay(1000);
@@ -41,7 +40,8 @@ namespace CollectionViewDemo.MVVM.ViewModels
             IsRefreshing = false;
         });
 
-        public ICommand DeleteCommand => new Command((p) => {
+        public ICommand DeleteCommand => new Command((p) =>
+        {
             Products.Remove((Product)p);
         });
 

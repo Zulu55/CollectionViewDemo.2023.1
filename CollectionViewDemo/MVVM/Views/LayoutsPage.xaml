@@ -52,5 +52,19 @@
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
+        <CollectionView.EmptyView>
+            <VerticalStackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="20">
+                <Image
+                    HeightRequest="150"
+                    Source="notfound.png"/>
+                <Label 
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    Text="No data found."/>
+            </VerticalStackLayout>
+        </CollectionView.EmptyView>
     </CollectionView>
 </ContentPage>
